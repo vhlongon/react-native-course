@@ -41,7 +41,8 @@
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "arrowParens": "avoid"
   },
   "private": true
 }

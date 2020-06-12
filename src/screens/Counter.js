@@ -9,13 +9,13 @@ const Counter = () => {
       <Button
         title="increase"
         onPress={() => {
-          setCounter((c) => c + 1);
+          setCounter(c => c + 1);
         }}
       />
       <Button
         title="decrease"
         onPress={() => {
-          setCounter((c) => c - 1);
+          setCounter(c => c - 1);
         }}
       />
     </View>

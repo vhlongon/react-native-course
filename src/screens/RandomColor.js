@@ -33,7 +33,7 @@ const RandomColor = () => {
       <FlatList
         numColumns={3}
         data={colors}
-        keyExtractor={(color) => `color-${color}`}
+        keyExtractor={color => `color-${color}`}
         renderItem={({ item }) => (
           <View
             className="item-container"

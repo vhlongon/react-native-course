@@ -10,23 +10,21 @@ const data = [
   { name: 'Person 6', age: 16 },
 ];
 // some interesting props that make style and layout a lot easier, the FlatList is vertical by default
-const List = () => {
-  return (
-    <FlatList
-      // horizontal
-      // showsHorizontalScrollIndicator={false}
-      // showsVerticalScrollIndicator={false}
-      data={data}
-      // This one here gets the object itself
-      keyExtractor={({ name }) => name}
-      // while the render prop here get the object as `item` plus other stuff
-      renderItem={({ item }) => (
-        <Text style={{ marginVertical: 50, marginHorizontal: 50 }}>
-          {`${item.name} - Age: ${item.age}`}
-        </Text>
-      )}
-    />
-  );
-};
+const List = () => (
+  <FlatList
+    // horizontal
+    // showsHorizontalScrollIndicator={false}
+    // showsVerticalScrollIndicator={false}
+    data={data}
+    // This one here gets the object itself
+    keyExtractor={({ name }) => name}
+    // while the render prop here get the object as `item` plus other stuff
+    renderItem={({ item }) => (
+      <Text style={{ marginVertical: 50, marginHorizontal: 50 }}>
+        {`${item.name} - Age: ${item.age}`}
+      </Text>
+    )}
+  />
+);
 
 export default List;

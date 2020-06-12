@@ -4,8 +4,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 // all elements in native have display fex column per default
 // and alignItems in "stretch" per default
-const styles = ({ numberOfItems = 1, height = '100%' }) => {
-  return EStyleSheet.create({
+const styles = ({ numberOfItems = 1, height = '100%' }) =>
+  EStyleSheet.create({
     $margin: 4,
     $borderWidth: 4,
     $borderRadius: 4,
@@ -30,7 +30,6 @@ const styles = ({ numberOfItems = 1, height = '100%' }) => {
       padding: '$padding',
     },
   });
-};
 
 const colors = ['red', 'green', 'blue'];
 

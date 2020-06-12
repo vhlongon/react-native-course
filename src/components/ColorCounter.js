@@ -7,25 +7,23 @@ const styles = EStyleSheet.create({
   button: { padding: 2 },
 });
 
-const ColorCounter = ({ color, onIncrease = () => {}, onDecrease = () => {} }) => {
-  return (
-    <View
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        width: '100%',
-      }}
-    >
-      <Text style={{ color }}>{color}</Text>
-      <View style={styles.button}>
-        <Button title="+" onPress={onIncrease} />
-      </View>
-      <View style={styles.button}>
-        <Button title="-" onPress={onDecrease} />
-      </View>
+const ColorCounter = ({ color, onIncrease = () => {}, onDecrease = () => {} }) => (
+  <View
+    style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-around',
+      width: '100%',
+    }}
+  >
+    <Text style={{ color }}>{color}</Text>
+    <View style={styles.button}>
+      <Button title="+" onPress={onIncrease} />
     </View>
-  );
-};
+    <View style={styles.button}>
+      <Button title="-" onPress={onDecrease} />
+    </View>
+  </View>
+);
 
 export default ColorCounter;

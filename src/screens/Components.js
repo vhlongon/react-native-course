@@ -13,13 +13,11 @@ const styles = EStyleSheet.create({
   },
 });
 
-const ComponentsScreen = () => {
-  return (
-    <View>
-      <Text style={styles.text}>This is the screen componentzzz</Text>
-      <Text style={styles.otherText}>Another text</Text>
-    </View>
-  );
-};
+const ComponentsScreen = () => (
+  <View>
+    <Text style={styles.text}>This is the screen componentzzz</Text>
+    <Text style={styles.otherText}>Another text</Text>
+  </View>
+);
 
 export default ComponentsScreen;

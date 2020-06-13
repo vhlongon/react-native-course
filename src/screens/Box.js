@@ -6,28 +6,32 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 // and alignItems in "stretch" per default
 const styles = ({ numberOfItems = 1, height = '100%' }) =>
   EStyleSheet.create({
-    $margin: 4,
-    $borderWidth: 4,
+    $marginBase: 4,
+    $borderWidthBase: 4,
     $borderRadius: 4,
     $padding: 4,
     container: {
       borderColor: 'gold',
       backgroundColor: 'lightyellow',
-      borderWidth: '$borderWidth / 2',
-      margin: '$margin * 2',
-      maxHeight: `${height} + $borderWidth`,
-      flex: 1,
+      borderWidth: '$borderWidthBase / 2',
+      margin: '$marginBase * 2',
+      maxHeight: `${height} + $borderWidthBase`,
     },
     item: { color: 'white' },
     itemContainer: {
-      justifyContent: 'center',
       alignItems: 'center',
+      justifyContent: 'center',
       borderColor: 'lightgray',
-      borderWidth: '$borderWidth / 2',
+      borderWidth: '$borderWidthBase / 2',
       borderRadius: '$borderRadius',
-      margin: '$margin / 2',
-      height: `${height / numberOfItems} - $margin`,
+      margin: '$marginBase / 2',
+      height: `${height / numberOfItems} - $marginBase`,
       padding: '$padding',
+    },
+    autoFill: {
+      ...EStyleSheet.absoluteFillObject,
+      backgroundColor: 'rgba(255, 105, 180, 0.5);',
+      color: 'crimson',
     },
   });
 
@@ -35,19 +39,23 @@ const colors = ['red', 'green', 'blue'];
 
 const Box = () => {
   const { height } = Dimensions.get('window');
-  const { container, item, itemContainer } = styles({
+  const { container, item, itemContainer, autoFill } = styles({
     numberOfItems: colors.length,
     height: height / 2,
   });
 
+  // use contentContainerStyle={{ alignItems: 'whatever' }} to control items alignment in a ScrollView element
   return (
-    <ScrollView style={container}>
-      {colors.map(x => (
-        <View style={[itemContainer, { backgroundColor: x }]}>
-          <Text style={item}>Box screen {x}</Text>
-        </View>
-      ))}
-    </ScrollView>
+    <View>
+      <ScrollView style={container}>
+        {colors.map(x => (
+          <View key={x} style={[itemContainer, { backgroundColor: x }]}>
+            <Text style={item}>Box screen {x}</Text>
+          </View>
+        ))}
+      </ScrollView>
+      <Text style={autoFill}>I am auto absolut auto fill</Text>
+    </View>
   );
 };
 
